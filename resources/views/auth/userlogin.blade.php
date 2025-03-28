@@ -34,8 +34,9 @@
                     </div>
 
                     <div class="search-form">
-                        <form>
-                            <input type="text" class="input-search" placeholder="Search here...">
+                        <form action="{{ route('search.user') }}" method="Get">
+                            @csrf
+                            <input type="text" class="input-search" name="search" placeholder="ابحث هنا...">
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </div>
@@ -47,37 +48,40 @@
         <div class="contact-form-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>دخول</h2>
+                    <h2>تسجيل الدخول</h2>
                 </div>
 
                 <div class="row pt-45">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 text-right">
                         <div class="contact-info mr-20">
-                            <span>Contact Info</span>
-                            <h2>Let's Connect With Us</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet varius mi, ut hendrerit magna mollis ac. </p>
+                            <span>معلومات الاتصال</span>
+                            <h2>اتصل بنا الان</h2>
                             <ul>
                                 <li>
                                     <div class="content">
                                         <i class='bx bx-phone-call'></i>
-                                        <h3>Phone Number</h3>
-                                        <a href="tel:+1(212)-255-5511">+1 (212) 255-5511</a>
+                                        <h3>رقم الموبايل</h3>
+                                        <a href="tel:{{$callUs->phone_with_country_code}}">{{ $callUs->phone }}</a>
                                     </div>
                                 </li>
 
                                 <li>
                                     <div class="content">
                                         <i class='bx bxs-map'></i>
-                                        <h3>Address</h3>
-                                        <span>124 Virgil A Virginia, USA</span>
+                                        <h3>العنوان</h3>
+                                        <span>{{ $callUs->address }}</span>
                                     </div>
                                 </li>
 
                                 <li>
                                     <div class="content">
                                         <i class='bx bx-message'></i>
-                                        <h3>Contact Info</h3>
-                                        <a href="mailto:hello@techex.com">hello@techex.com</a>
+                                        <h3>اوقات الدوام</h3>
+                                        <span>من {{ \Carbon\Carbon::parse($callUs->open_time)->format('h:i A') }}
+                                        </span>
+
+                                        <span>الى {{ \Carbon\Carbon::parse($callUs->close_time)->format('h:i A') }}</span>
+
                                     </div>
                                 </li>
                             </ul>
@@ -89,16 +93,16 @@
                             <form id="" method="post" action="{{ route('userlogin') }}">
                                 @csrf
                                 @method('POST')
-                                <div class="row">
+                                <div class="row text-right">
+
 
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>رقم الموبايل <span>*</span></label>
-                                            <input type="text" name="phone" id="phone_number" value="{{ old('phone') }}" required data-error="ادخل رقم الموبايل" class="form-control" placeholder="مثال: 07XXXXXXXXX">
+                                            <input type="text" name="phone" id="phone_number" required data-error="ادخل رقم الموبايل" class="form-control" value="{{ old('phone') }}" placeholder="مثال: 07XXXXXXXXX">
                                             <div class="help-block with-errors"></div>
                                             @error('phone')
                                             <div class="alert alert-danger">{{ $message }}</div>
-
                                             @enderror
                                         </div>
                                     </div>
@@ -120,15 +124,14 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="agree-label">
-                                            <label for="chb1">
-                                             ليس لديك حساب؟ <a href="{{ route('userregister') }}">سجل الان</a>
+                                            <label for="chb1">ليس لديك حساب؟<a href="{{ route('userregister') }}">سجل الدخول</a>
                                             </label>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 text-center">
                                         <button type="submit" class="default-btn btn-bg-two border-radius-50">
-                                            دخول <i class='bx bx-chevron-right'></i>
+                                            تسجيل الدخول <i class='bx bx-chevron-right'></i>
                                         </button>
                                         <div id="msgSubmit" class="h3 text-center hidden"></div>
                                         <div class="clearfix"></div>

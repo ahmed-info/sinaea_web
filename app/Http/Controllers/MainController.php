@@ -18,16 +18,21 @@ class MainController extends Controller
 
     public function home()
     {
-        //$categories = Category::all();
-        //$products = Item::with('images')->paginate(1);
-        //$brands = Brand::all();
-        //$newProducts  = Item::latest()->take(5)->with('images')->get();
-        // return $newProducts;
+    //     $categories = Category::withCount('items')->get();
+    //     $items = Category::select('*')
+    // ->selectRaw('COUNT(*) as item_count')
+    // ->groupBy('name')
+    // ->get();
+    //     return $items;
         $departments = Department::all();
         $slides = Slide::all();
-        $categories = Category::all();
+          //  $categories = Category::withCount('items')->get();
+          $categories = Category::select('id', 'name', 'image')
+          ->selectRaw('COUNT(name) as category_count')
+          ->groupBy('id', 'name', 'image')
+          ->get();
         $externalCategories = ExternalCategory::latest()->get();
-        $newitems = Item::latest()->limit(6)->get();
+        $newitems = Item::latest()->limit(8)->get();
         $callUs = CallUs::first();
         $social = Social::first();
 
@@ -50,9 +55,10 @@ class MainController extends Controller
         return view('user.productByBrand', compact('categories', 'brands', 'singleBrand', 'otherBrands', 'items', 'callUs', 'social', 'departments', 'externalCategories'));
     }
 
-    public function itemsBycategory($categoryId)
+    public function itemsByCategory($categoryId)
     {
         $singleCategory = Category::findOrFail($categoryId);
+        //return $singleCategory;
         $items = $singleCategory->items;
         $otherCategories = Category::where('id', '!=', $categoryId)->get();
         $categories = Category::all();
@@ -60,13 +66,53 @@ class MainController extends Controller
         $callUs = CallUs::first();
         $social = Social::first();
         $departments = Department::all();
-
         $externalCategories = ExternalCategory::latest()->get();
         return view('user.productByCategory', compact('categories', 'brands', 'singleCategory', 'otherCategories', 'items', 'callUs', 'social', 'departments', 'externalCategories'));
     }
 
 
-   
+    public function itemsByExternal($externalId)
+    {
+        $singleExternal = ExternalCategory::findOrFail($externalId);
+        //$otherCategories = Category::where('id', '!=', $categoryId)->get();
+        $categories = Category::all();
+        $brands = Brand::all();
+        $callUs = CallUs::first();
+        $social = Social::first();
+        $departments = Department::all();
+
+        $externalCategories = ExternalCategory::latest()->get();
+        return view('user.productByExternalCategory', compact('categories', 'brands', 'singleExternal', 'callUs', 'social', 'departments', 'externalCategories'));
+    }
+
+    public function productDetails($id)
+    {
+        $item = Item::where('id', $id)->firstorFail();
+        $relatedItems = Item::where('id', '!=', $id)->latest()->take(6)->get();
+        $callUs = CallUs::first();
+        $social = Social::first();
+        $categories = Category::all();
+        $departments = Department::all();
+        $brands = Brand::all();
+        $externalCategories = ExternalCategory::latest()->get();
+
+
+       // $user = auth()->user();
+            // $cart = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
+            // if ($cart) {
+            //     $cart->quantity += 1;
+            //     $cart->save();
+            // } else {
+            //     $cart = new Cart();
+            //     $cart->item_id = $item->id;
+            //     $cart->user_id = auth()->user()->id;
+            //     $cart->quantity = 1;
+            //     $cart->save();
+            // }
+        return view('user.productDetails', compact('item','relatedItems','callUs', 'social', 'departments','categories','brands','externalCategories'));
+
+    }
+
 
 
     //other methods
@@ -138,26 +184,22 @@ class MainController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $category_slug = $request->category_slug;
-        $category = Category::where('slug', $category_slug)->first();
+        $category_query = $request->category_slug;
+        $category = Category::where('name', $category_query)->first();
         $categories = Category::all();
         $brands = Brand::all();
-        $newProducts = item::latest()->take(5)->with('images')->get();
+        $callUs = CallUs::first();
+        $social = Social::first();
+        $departments = Department::all();
+        $externalCategories = ExternalCategory::latest()->get();
+        $newProducts = item::latest()->take(5)->get();
 
         if ($category) {
-            $products = $category->products()->where('title', 'like', "%$search%")
-                ->orWhere('description', 'like', "%$search%")
-                ->orWhere('price', 'like', "%$search%")
-                ->orWhere('discount', 'like', "%$search%")
-                ->with('images')
-                ->get();
+            $products = $category->items()->where('name', 'like', "%$search%")
+            ->get();
 
         } else {
-            $products = Item::where('title', 'like', "%$search%")
-                ->orWhere('description', 'like', "%$search%")
-                ->orWhere('price', 'like', "%$search%")
-                ->orWhere('discount', 'like', "%$search%")
-                ->with('images')
+            $products = Item::where('name', 'like', "%$search%")
                 ->get();
         }
 
@@ -165,22 +207,28 @@ class MainController extends Controller
             return redirect()->back()->with('status', 'No products found');
         }
 
-        return view('user.searchProduct', compact('categories', 'products', 'brands', 'newProducts'));
+        return view('user.searchProduct', compact('categories', 'products', 'brands', 'newProducts','callUs','social','departments','externalCategories'));
     }
 
-    public function sortBy(Request $request)
+    public function sortBy($sort = null)
     {
-        $sort = $request->sort;
         $categories = Category::all();
         $brands = Brand::all();
-        $newProducts = Item::latest()->take(5)->with('images')->get();
-        $products = Item::orderBy($sort, 'ASC')->get();
-        return view('user.searchProduct', compact('categories', 'products', 'brands', 'newProducts'));
+        $callUs = CallUs::first();
+        $social = Social::first();
+        $departments = Department::all();
+        $externalCategories = ExternalCategory::latest()->get();
+        if($sort == 'DESC' || $sort == 'ASC') {
+            $products = Item::orderBy('created_at', $sort)->get();
+            return view('user.sortBy', compact('categories', 'products', 'brands', 'callUs', 'social', 'departments', 'externalCategories'));
+
+        }else if($sort == 'priceASC' || $sort == 'priceDESC') {
+            $sort == 'priceASC' ? $sort = 'ASC' : $sort = 'DESC';
+            $products = Item::orderBy('user_price', $sort)->get();
+            return view('user.sortBy', compact('categories', 'products', 'brands', 'callUs', 'social', 'departments', 'externalCategories'));
+        }
+        $products = Item::latest()->get();
+        return view('user.sortBy', compact('categories', 'products', 'brands', 'callUs', 'social', 'departments', 'externalCategories'));
     }
-
-
-
-
-
 
 }

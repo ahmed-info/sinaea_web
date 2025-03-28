@@ -39,6 +39,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
+
     <link href="{{ asset('assetcart/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assetcart/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
@@ -67,3 +68,17 @@
         </script>
     @endif
 </head>
+<style>
+    *:focus {
+  outline: none;
+}
+hr {
+  border: none;
+  border-top: 1px solid #000;
+}
+a:focus, button:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+</style>

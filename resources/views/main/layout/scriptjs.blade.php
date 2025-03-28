@@ -1,10 +1,6 @@
         <!-- Color Switch Button -->
-        <div class="switch-box">
-            <label id="switch" class="switch">
-                <input type="checkbox" onchange="toggleTheme()" id="slider">
-                <span class="slider round"></span>
-            </label>
-        </div>
+        <input type="hidden" id="slider">
+
         <!-- Color Switch Button End -->
 
 

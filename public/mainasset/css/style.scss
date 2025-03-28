@@ -9,7 +9,7 @@ This files table contents are outlined below>>>>>
 
 *******************************************
 *******************************************
-** - Default Btn Style 
+** - Default Btn Style
 ** - Section Title Style
 ** - Top Header Style
 ** - Navbar Area Style
@@ -33,9 +33,9 @@ This files table contents are outlined below>>>>>
 $body-font: 'Livvic', sans-serif;
 
 $main-color: #252525;
-$optional-color:#ffc221; 
+$optional-color:#ffc221;
 $optional-color-2:#0071dc;
-$optional-bg:#070b3b;
+$optional-bg:#0073b6;
 $paragraph-color: #444444;
 $color-white: #ffffff;
 
@@ -47,7 +47,7 @@ body {
     font-weight: 400;
 }
 p {
-    color: $paragraph-color; 
+    color: $paragraph-color;
     font-weight: 400;
 }
 a {
@@ -140,7 +140,7 @@ img {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 /*================================
-Section Title Style 
+Section Title Style
 ===================================*/
 .section-title {
     span {
@@ -174,7 +174,7 @@ Section Title Style End
 ===================================*/
 
 /*================================
-Default Btn Style 
+Default Btn Style
 ===================================*/
 .default-btn {
     display: inline-block;
@@ -201,7 +201,7 @@ Default Btn Style
         transition-duration: 0.6s;
         transform-origin: top left;
         width: 0;
-    }      
+    }
     &:hover {
         color: $color-white !important;
         &:before {
@@ -222,7 +222,7 @@ Default Btn Style End
 ===================================*/
 
 /*================================
-Top Header 
+Top Header
 ===================================*/
 .top-header {
     padding: 7px 0 10px;
@@ -602,7 +602,7 @@ Navbar Area
                 }
                 &:hover i {
                     color: $optional-color-2;
-                }            
+                }
             }
             .search-side-widget {
                 .search-side-form {
@@ -636,7 +636,7 @@ Navbar Area
                             position: relative;
                             top: 1.90px;
                         }
-                          
+
                         &:hover {
                             background-color: $optional-color-2;
                         }
@@ -734,7 +734,7 @@ Navbar Area
                     }
                     &:hover i {
                         color: $optional-color-2;
-                    }            
+                    }
                 }
                 .get-btn {
                     display: inline-block;
@@ -940,7 +940,7 @@ Search Overlay CSS End
 =================================*/
 
 /*==================================
-Main Banner Area 
+Main Banner Area
 =================================*/
 .banner-slider-area {
     position: relative;
@@ -1244,7 +1244,7 @@ Main Banner Area
                 i {
                     background-color: $optional-color;
                     color: $color-white;
-                    &::after { 
+                    &::after {
                        border-color: $optional-color;
                     }
                 }
@@ -1252,7 +1252,7 @@ Main Banner Area
                     color: $color-white;
                 }
                 span {
-                    color: $optional-color;  
+                    color: $optional-color;
                 }
             }
         }
@@ -1304,7 +1304,7 @@ Main Banner Area End
 =================================*/
 
 /*==================================
-Banner Bottom Area 
+Banner Bottom Area
 =================================*/
 .banner-bottom-area {
     position: relative;
@@ -1391,7 +1391,7 @@ Banner New Demo Start Seven & Eight
                     left: auto;
                 }
                 &:hover {
-                    background-color: #070b3b;
+                    background-color: #0073b6;
                     color: $color-white;
                 }
             }
@@ -1471,7 +1471,7 @@ Inner Banner End
 ==================================*/
 
 /*==================================
-About Area 
+About Area
 =================================*/
 .about-content {
     .about-content-card {
@@ -1626,7 +1626,7 @@ About Area
                 color: $optional-color-2;
                 background-color: $color-white;
                 text-align: center;
-                font-size: 55px; 
+                font-size: 55px;
                 border-radius: 50px;
                 display: inline-block;
                 i {
@@ -1768,7 +1768,7 @@ About Area End
 =================================*/
 
 /*==================================
-Security Area Area 
+Security Area Area
 =================================*/
 .security-area {
     .section-title {
@@ -1829,7 +1829,7 @@ Security Area End
 =================================*/
 
 /*==================================
-Services Area 
+Services Area
 =================================*/
 .services-area {
     background-color: $optional-bg;
@@ -1855,7 +1855,7 @@ Services Area
     position: relative;
     z-index: 1;
     margin-bottom: 30px;
-    
+
     &::before {
         content: '';
         position: absolute;
@@ -2017,7 +2017,7 @@ Services Area
     a {
         display: block;
         img {
-            border-radius: 5px; 
+            border-radius: 5px;
         }
     }
     .content {
@@ -2173,7 +2173,7 @@ Services Area End
 =================================*/
 
 /*==================================
-Work Area 
+Work Area
 =================================*/
 .work-process-area {
     .section-title {
@@ -2463,7 +2463,7 @@ Work Area End
     }
 }
 /*==================================
-Build Area 
+Build Area
 =================================*/
 .build-area {
     position: relative;
@@ -2596,10 +2596,10 @@ Build Area
     a {
         display: block;
         img {
-            border-radius: 5px; 
+            border-radius: 5px;
         }
     }
-    
+
     .content {
         position: absolute;
         left: 0;
@@ -2681,7 +2681,7 @@ Build Area
                 }
             }
         }
-        .more-btn { 
+        .more-btn {
             background-color: $optional-color-2;
             color: $color-white;
         }
@@ -2788,7 +2788,7 @@ Build Area End
         right: 0;
         width: 100%;
         height: 100%;
-        background-color: #070b3b;
+        background-color: #0073b6;
         opacity: 0.8;
     }
 }
@@ -2886,7 +2886,7 @@ Build Area End
     }
 }
 /*==================================
-Counter Area 
+Counter Area
 =================================*/
 .counter-area {
     position: relative;
@@ -2980,7 +2980,7 @@ Counter Area End
 =================================*/
 
 /*==================================
-Case Study Area 
+Case Study Area
 =================================*/
 .case-study-area {
     .section-title {
@@ -2997,7 +2997,7 @@ Case Study Area
     a {
         display: block;
         img {
-            border-radius: 5px; 
+            border-radius: 5px;
         }
     }
     .content {
@@ -3045,7 +3045,7 @@ Case Study Area
                     transform: skew(-20deg);
                 }
                 a {
-                    color: $paragraph-color; 
+                    color: $paragraph-color;
                 }
                 &:last-child {
                     margin-left: 0;
@@ -3086,8 +3086,8 @@ Case Study Area
                 a {
                     color: $optional-color-2;
                 }
-            } 
-            .more-btn { 
+            }
+            .more-btn {
                 background-color: $optional-color-2;
                 color: $color-white;
             }
@@ -3327,7 +3327,7 @@ Team Area End
 ====================================*/
 
 /*==================================
-Technology Area 
+Technology Area
 =================================*/
 .technology-area {
     position: relative;
@@ -3407,7 +3407,7 @@ Technology Area
         }
         p {
             color: $color-white;
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
             padding-top: 17px;
         }
     }
@@ -3515,12 +3515,12 @@ Technology Area
                 animation: ripple 2s infinite ease-in-out;
             }
         }
-        
+
         &:hover {
             i {
                 background-color: $optional-color;
                 color: $color-white;
-                &::after { 
+                &::after {
                    border-color: $optional-color;
                 }
             }
@@ -3532,7 +3532,7 @@ Technology Area End
 =================================*/
 
 /*==================================
-Brand Area 
+Brand Area
 =================================*/
 .brand-area {
     position: relative;
@@ -3871,7 +3871,7 @@ Clients Area
         width: 90%;
         height: 90%;
         animation: border-transform  15s infinite ease-in-out;
-        background-image: linear-gradient(#0071dc, #070b3b);
+        background-image: linear-gradient(#0071dc, #0073b6);
     }
 }
 .clients-slider-content {
@@ -4519,7 +4519,7 @@ Blog Area End
             i {
                 color: $color-white;
                 font-size: 24px;
-            }  
+            }
             &:hover {
                 background-color: $main-color;
             }
@@ -4598,7 +4598,7 @@ Blog Area End
                         }
                     }
                 }
-            }              
+            }
         }
     }
     .widget-popular-post {
@@ -4766,7 +4766,7 @@ Blog Area End
     }
 }
 .blog-style-card {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
     .blog-style-img {
         position: relative;
         img {
@@ -4851,7 +4851,7 @@ Blog Area End
 =================================*/
 
 /*=================================
-Faq Area 
+Faq Area
 ===================================*/
 .faq-area {
     .section-title {
@@ -4975,7 +4975,7 @@ Faq Area End
     }
 }
 /*==============================
-Pagination Area 
+Pagination Area
 =================================*/
 .pagination-area {
     margin-top: 10px;
@@ -5029,7 +5029,7 @@ Pagination Area End
 }
 
 /*=================================
-Contact Area 
+Contact Area
 ====================================*/
 .contact-form {
     max-width: 800px;
@@ -5138,7 +5138,7 @@ Contact Area
         .form-control {
             &::-webkit-input-placeholder, &:-ms-input-placeholder, &::-ms-input-placeholder, &::placeholder {
                 color: $paragraph-color
-            } 
+            }
         }
     }
 }
@@ -5305,8 +5305,8 @@ Contact Area End
 404 Error Area End
 ===================================*/
 
-/*================================== 
-Coming Soon Area 
+/*==================================
+Coming Soon Area
 ====================================*/
 .coming-soon-area {
     position: relative;
@@ -5362,7 +5362,7 @@ Coming Soon Area
                     margin-right: 0;
                     &::before {
                         display: none;
-                    }  
+                    }
                 }
                 &:first-child {
                     margin-left: 0;
@@ -5458,12 +5458,12 @@ Coming Soon Area
         color: #dc3545 !important;
     }
 }
-/*================================== 
+/*==================================
 Coming Soon Area End
 ====================================*/
 
 /*=================================
-Map Area 
+Map Area
 ====================================*/
 .map-area iframe {
     display: block;
@@ -5651,7 +5651,7 @@ Map Area End
                 &:hover {
                     background: $main-color;
                     color: #ffffff;
-                }                  
+                }
             }
             .validation-danger {
                 font-size: 18px;
@@ -5682,7 +5682,7 @@ Map Area End
     }
 }
 /*=================================
-Go Top Area 
+Go Top Area
 ====================================*/
 .go-top {
     position: fixed;
@@ -5750,7 +5750,7 @@ Buy Now Btn
     }
 }
 /*==================================
-Preloader CSS 
+Preloader CSS
 =====================================*/
 .preloader {
     position: fixed;
@@ -5760,7 +5760,7 @@ Preloader CSS
     height: 100%;
     z-index: 99999;
     background: $optional-bg;
-} 
+}
 .spinner {
     width: 40px;
     height: 40px;
@@ -5768,7 +5768,7 @@ Preloader CSS
     background-color: $color-white;
     margin: 100px auto;
     animation: rotate-in 1.2s infinite ease-in-out;
-}  
+}
 /*==================================
 Preloader CSS End
 =====================================*/
@@ -5819,7 +5819,7 @@ Home Page Six Css
         right: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to right, #070b3b61, #070b3b);
+        background-image: linear-gradient(to right, #0073b661, #0073b6);
     }
 }
 .banner-six-content {
@@ -5875,7 +5875,7 @@ Home Page Six Css
         width: 110%;
         height: 70%;
         animation: border-transform  15s infinite ease-in-out;
-        background-image: linear-gradient(#0071dc, #070b3b);
+        background-image: linear-gradient(#0071dc, #0073b6);
     }
 }
 
@@ -6033,8 +6033,8 @@ Home Page Six Css
                 a {
                     color: $optional-color-2;
                 }
-            } 
-            .more-btn { 
+            }
+            .more-btn {
                 background-color: $optional-color-2;
                 color: $color-white;
             }
@@ -6044,7 +6044,7 @@ Home Page Six Css
 
 .top-header-right {
     float: right;
-    
+
 }
 
 .footer-widget {
@@ -6146,7 +6146,7 @@ Home Page Six Css End
               transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
 }
-  
+
 @keyframes rotate-in {
     0% {
         -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
@@ -6176,7 +6176,7 @@ Home Page Six Css End
               transform: translateY(0px);
     }
   }
-  
+
 @keyframes moveBounce {
 0% {
     -webkit-transform: translateY(0px);
@@ -6197,13 +6197,13 @@ Home Page Six Css End
       -webkit-transform: scale(1);
       transform: scale(1);
     }
-  
+
     75% {
       -webkit-transform: scale(1.3);
       transform: scale(1.3);
       opacity: 1;
     }
-  
+
     100% {
       -webkit-transform: scale(1.5);
       transform: scale(1.5);

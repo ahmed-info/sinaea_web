@@ -34,8 +34,9 @@
                     </div>
 
                     <div class="search-form">
-                        <form>
-                            <input type="text" class="input-search" placeholder="Search here...">
+                        <form action="{{ route('search.user') }}" method="Get">
+                            @csrf
+                            <input type="text" class="input-search" name="search" placeholder="ابحث هنا...">
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </div>
@@ -54,11 +55,11 @@
                 <div class="row justify-content-center align-items-center pt-45">
                     @forelse ($items as $item)
                     <div class="col-lg-4 col-md-6">
-                        <div class="services-card services-card-color-bg2">
-                            <a href="service-details.html">
-                                <img src="{{ asset('images/'.$item->image)}}" alt="services">
+                        <div class="services-card services-card-color-bg">
+                            <a href="{{ route('productDetails',$item->id) }}">
+                                <img src="{{ asset('images/'.$item->image)}}" style="height: 200px !important;width:290px; object-fit: cover;%" alt="{{ $item->name }}">
                             </a>
-                            <h3><a href="service-details.html">{{ $item->name }}</a></h3>
+                            <h3><a href="{{ route('productDetails',$item->id) }}">{{ $item->name }}</a></h3>
 
                             @if ($item->item_details->count() > 0)
 
@@ -68,18 +69,18 @@
 
 
                                 @if ($item->discount != null && $item->discount != 0)
-                                <li><a href="case-details.html" class="sp-color1">
+                                <li><a href="{{ route('productDetails',$item->id) }}" class="sp-color1">
 
-                                    <span class="text-dark mx-2 sp-color1">السعر</span><del>{{ $item->exchange_price }} د.ع</del>
+                                    <span class="text-dark mx-2 sp-color1">السعر</span><del>{{ number_format( $item->exchange_price) }} د.ع</del>
                                 </a></li>
                                 @endif
 
 
 
-                                <li><a href="case-details.html" class="sp-color1" style="font-weight: bold"></a><span class="text-dark mx-2 sp-color1">السعر</span>{{ $item->discounted_price }} د.ع</li>
+                                <li><a href="{{ route('productDetails', $item->id) }}" class="sp-color1" style="font-weight: bold"></a><span class="text-dark mx-2 sp-color1">السعر</span>{{ number_format( $item->discounted_price) }} د.ع</li>
 
                             </ul>
-                            <a href="service-details.html" class="learn-btn">اشتري الان<i class='bx bx-chevron-right'></i></a>
+                            <a href="{{ route('addItemToCart', $item->id) }}" class="learn-btn">اضافة الى السلة<i class='bx bx-chevron-right'></i></a>
                         </div>
                     </div>
                     @empty
@@ -97,14 +98,14 @@
         <!-- Brand Area -->
         <div class="brand-area ptb-100">
             <div class="container">
-                <div class="section-title mb-5">
+                <div class="section-title mb-5 text-center">
                     <h2>العلامات التجارية الأخرى</h2>
                 </div>
                 <div class="brand-slider owl-carousel owl-theme">
                     @foreach($otherBrands as $otherBrand)
                     <a href="{{ route('itemsByBrand',$otherBrand->id) }}" class="brand-item">
-                        <img src="{{ asset('images/'. $otherBrand->image) }}" class="brand-logo-one" alt="Images">
-                        <img src="{{ asset('images/'. $otherBrand->image) }}" class="brand-logo-two" alt="Images">
+                        <img src="{{ asset('images/'. $otherBrand->image) }}" class="brand-logo-one" style="width: 100%;height: 200px;object-fit: cover" alt="Images">
+                        <img src="{{ asset('images/'. $otherBrand->image) }}" class="brand-logo-two" style="width: 100%;height: 200px;object-fit: cover" alt="Images">
                     </a>
                     @endforeach
 

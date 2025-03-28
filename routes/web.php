@@ -53,8 +53,10 @@ use App\Http\Controllers\DashboardController;
 // });
 Route::get('/', [MainController::class,'home'])->name('home');
 Route::get('/itemsByBrand/{brandId}', [MainController::class,'itemsBybrand'])->name('itemsByBrand');
-Route::get('/itemsByCategory/{categoryId}', [MainController::class,'itemsByCategory'])->name('itemsByCategory');
+Route::get('/itemsByCategory/{categoryId?}', [MainController::class,'itemsByCategory'])->name('itemsByCategory');
 Route::get('/itemsByDepartment/{departmentId}', [MainController::class,'itemsByDepartment'])->name('itemsByDepartment');
+Route::get('/itemsByExternal/{externalId}', [MainController::class,'itemsByExternal'])->name('itemsByExternal');
+Route::get('/productDetails/{id}', [MainController::class,'productDetails'])->name('productDetails');
 
 Route::get('/shopcart', [CartController::class,  'shopcart'])->name('shopcart')->middleware('roleManager');
 Route::any('/addItemToCart/{itemId}', [CartController::class,  'addItemToCart'])->name('addItemToCart')->middleware('roleManager');
@@ -62,6 +64,8 @@ Route::any('/addItemToCart/{itemId}', [CartController::class,  'addItemToCart'])
 Route::put('/decreaseCart/{id}', [CartController::class,  'decreaseCart'])->name('decreaseCart')->middleware('roleManager');
 Route::put('/increaseCart/{id}', [CartController::class,  'increaseCart'])->name('increaseCart');
 Route::delete('/deleteCart/{id}', [CartController::class,  'deleteCart'])->name('cart.delete');
+Route::any('/search/user', [MainController::class,  'search'])->name('search.user');
+Route::get('/sortby/{sort}', [MainController::class,  'sortBy'])->name('sortby.user');
 
 
 Route::post('checkoutOrder', [CartController::class,'checkoutOrder'])->name(  'order.store')->middleware('roleManager');

@@ -1,6 +1,6 @@
-$optional-color:#ffc221; 
+$optional-color:#ffc221;
 $optional-color-2:#0071dc;
-$optional-bg:#070b3b;
+$optional-bg:#0073b6;
 $color-white: #ffffff;
 $dark-color: #1d1d1d;
 $bg-color: #252525;
@@ -56,11 +56,11 @@ $bg-color: #252525;
     input:checked + .slider {
         background-color: #2196f3;
     }
-      
+
     input:focus + .slider {
         box-shadow: 0 0 1px #2196f3;
     }
-      
+
     input:checked + .slider:before {
         transform: translateX(24px);
         background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
@@ -68,24 +68,24 @@ $bg-color: #252525;
         background-position: center;
     }
 }
-  
+
 .theme-dark {
     $main-color: #ffffff;
     $paragraph-color: #ffffff;
     body {
-        color: $color-white; 
+        color: $color-white;
     }
     h1, h2, h3, h4, h5, h6 {
-        color: $color-white; 
+        color: $color-white;
     }
     h3 {
-        color: $color-white; 
+        color: $color-white;
         a {
             color: $color-white;
         }
     }
     p {
-        color: $color-white; 
+        color: $color-white;
     }
     body {
         background: $dark-color;
@@ -160,7 +160,7 @@ $bg-color: #252525;
                             }
                         }
                     }
-                }   
+                }
             }
         }
         .nav-side {
@@ -283,7 +283,7 @@ $bg-color: #252525;
         }
         .about-list {
             li {
-                color: $color-white; 
+                color: $color-white;
             }
         }
     }
@@ -308,7 +308,7 @@ $bg-color: #252525;
             a {
                 color: $color-white;
             }
-            
+
         }
         p {
             color: $color-white;
@@ -733,7 +733,7 @@ $bg-color: #252525;
                             }
                         }
                     }
-                }              
+                }
             }
         }
         .widget-popular-post {
@@ -753,7 +753,7 @@ $bg-color: #252525;
     }
     .search-widget {
         background-color: $dark-color;
-        .search-form { 
+        .search-form {
             background-color: $dark-color;
             .form-control {
                 background-color: $dark-color;
@@ -810,7 +810,7 @@ $bg-color: #252525;
             p {
                 color: $color-white;
             }
-            #timer { 
+            #timer {
                 div {
                     background-color: $dark-color;
                     color: $color-white;
@@ -849,7 +849,7 @@ $bg-color: #252525;
                         color: $optional-color;
                     }
                 }
-                
+
             }
         }
         .newsletter-area {
@@ -863,4 +863,4 @@ $bg-color: #252525;
     }
 
 }
-  
+

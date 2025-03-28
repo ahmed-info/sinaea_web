@@ -24,7 +24,8 @@
                 <div class="card-body">
                     <div class="d-lg-flex align-items-center mb-4 gap-3">
                         <div class=""><a href="{{ route('items.create') }}"
-                            class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>اضافة منتج جديد</a></div>
+                                class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>اضافة منتج
+                                جديد</a></div>
                         <div class="position-relative">
                             <input type="text" class="form-control ps-5 radius-30" placeholder="بحث"> <span
                                 class="position-absolute top-50 product-show translate-middle-y"><i
@@ -66,11 +67,11 @@
                                                 </div>
                                             </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->cost_price }}</td>
-                                            <td>{{ $item->supplier_price }}</td>
-                                            <td>{{ $item->user_price }}</td>
-                                            <td>{{ $item->available == 1 ? 'متاح':'غير متاح' }}</td>
-                                            <td>{{ $item->active == 1 ? 'فعال':'غير فعال' }}</td>
+                                            <td>{{ number_format($item->cost_price) }}</td>
+                                            <td>{{ number_format($item->supplier_price) }}</td>
+                                            <td>{{ number_format($item->user_price) }}</td>
+                                            <td>{{ $item->available == 1 ? 'متاح' : 'غير متاح' }}</td>
+                                            <td>{{ $item->active == 1 ? 'فعال' : 'غير فعال' }}</td>
 
                                             <td>
                                                 <div>

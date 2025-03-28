@@ -897,7 +897,7 @@
     height: 60%;
     left: 0;
     animation: none;
-    background-image: linear-gradient(#0071dc, #070b3b);
+    background-image: linear-gradient(#0071dc, #0073b6);
   }
   .clients-slider-content {
     margin-bottom: 20px;
@@ -1005,7 +1005,7 @@
   /* Footer Area End */
   .banner-six::before {
     background-image: none;
-    background-color: #070b3b;
+    background-color: #0073b6;
     opacity: 0.7;
   }
   .banner-six-content {
@@ -1643,7 +1643,7 @@
     height: 60%;
     left: 0;
     animation: none;
-    background-image: linear-gradient(#0071dc, #070b3b);
+    background-image: linear-gradient(#0071dc, #0073b6);
   }
   .clients-slider-content {
     margin-bottom: 20px;
@@ -1682,7 +1682,7 @@
   /* Error Area CSS End */
   .banner-six::before {
     background-image: none;
-    background-color: #070b3b;
+    background-color: #0073b6;
     opacity: 0.7;
   }
   .banner-six-content {

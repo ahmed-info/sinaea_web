@@ -25,6 +25,7 @@ class CartController extends Controller
         if ($result) {
             $result->quantity += 1;
             $result->save();
+
             return redirect()->route('shopcart');
 
         } else {
@@ -63,6 +64,7 @@ class CartController extends Controller
         if ($result->quantity > 1) {
             $result->quantity -= 1;
             $result->save();
+
             return redirect()->route('shopcart');
         } else {
             $result->delete();
@@ -83,6 +85,7 @@ class CartController extends Controller
         $result->quantity += 1;
         //return "ok increase";
         $result->save();
+
         return redirect()->route('shopcart');
     }
 
@@ -125,6 +128,10 @@ class CartController extends Controller
                 'order_id' => $order->id,
 
             ]);
+        }
+        $carts = Cart::where('user_id', auth()->user()->id)->get();
+        foreach ($carts as $cart) {
+            $cart->delete();
         }
        session(['status' => 'تم ارسال الطلب بنجاح']);
 

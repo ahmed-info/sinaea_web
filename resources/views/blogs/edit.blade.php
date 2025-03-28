@@ -38,7 +38,8 @@
                             @enderror
 
                             <label for="content" class="font-bold mt-3">تفاصيل المدونة</label>
-                            <textarea id="mytextarea" class="form-control" rows="5" id="content" name="content">{{ $blog->content }}</textarea>
+                            <textarea id="summernote2" class="summernote2" name="content">{!! $blog->content !!}</textarea>
+
                             @error('content')
                             <div class="text-danger">
                                 {{ $message }}
@@ -77,10 +78,13 @@
 </div>
 <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js'></script>
 
-<script>
-    tinymce.init({
-        selector: '#mytextarea'
-    });
 
+<script>
+    $(document).ready(function() {
+        $('#summernote2').summernote({
+            tabsize: 2,
+            height: 200
+        });
+    });
 </script>
 @endsection

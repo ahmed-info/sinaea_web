@@ -35,8 +35,9 @@
                 </div>
 
                 <div class="search-form">
-                    <form>
-                        <input type="text" class="input-search" placeholder="Search here...">
+                    <form action="{{ route('search.user') }}" method="Get">
+                        @csrf
+                        <input type="text" class="input-search" name="search" placeholder="ابحث هنا...">
                         <button type="submit"><i class='bx bx-search'></i></button>
                     </form>
                 </div>
@@ -79,7 +80,7 @@
                                     {{ $cart->item->name }}
                                 </td>
                                 @if ($cart->item->discount > 0 || $cart->item->discount != null)
-                                    <td class="align-middle">{{ $cart->item->discounted_price }}</td>
+                                    <td class="align-middle">{{ number_format( $cart->item->discounted_price) }}</td>
                                     @php
                                         $id[] = $cart->item_id;
                                         $quantity[] = $cart->quantity;
@@ -88,7 +89,7 @@
                                 @else
 
 
-                                    <td class="align-middle">{{ $cart->item->exchange_price }}</td>
+                                    <td class="align-middle">{{ number_format( $cart->item->exchange_price)}}</td>
                                     @php
                                          $id[] = $cart->item_id;
                                         $quantity[] = $cart->quantity;
@@ -133,13 +134,13 @@
                                         {{ $total += $cart->item->discounted_price * $cart->quantity }}
 
                                     </div>
-                                    <td class="align-middle">{{ $cart->item->discounted_price * $cart->quantity }}</td>
+                                    <td class="align-middle">{{ number_format( $cart->item->discounted_price * $cart->quantity) }}</td>
                                 @else
                                     <div class="d-none">
 
                                         {{ $total += $cart->item->exchange_price * $cart->quantity }}
                                     </div>
-                                    <td class="align-middle">{{ $cart->item->exchange_price * $cart->quantity }}</td>
+                                    <td class="align-middle">{{ number_format( $cart->item->exchange_price * $cart->quantity) }}</td>
                                 @endif
 
                                 <td class="align-middle">
@@ -199,8 +200,7 @@
                                 <h5>السعر الكلي</h5>
                                 <h5> {{ $total }}</h5>
                             </div>
-                            <button class="btn btn-block btn-primary font-weight-bold my-3 py-3" type="submit">تأكيد
-                                الطلب</button>
+                            <button class="btn btn-block btn-primary font-weight-bold my-3 py-3" type="submit">تأكيد الطلب</button>
                         </div>
                     </div>
                 </form>

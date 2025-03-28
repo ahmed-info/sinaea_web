@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="footer-widget">
-                        <div class="footer-logo">
-                            <a href="index.html">
-                                <img src="{{ asset('mainasset/images/logos/footer-logo.png') }}" alt="Images">
+                        {{-- <div class="footer-logo">
+                            <a href="/">
+                                <img src="{{ asset('mainasset/images/logos/logo-1.png') }}" alt="Images">
                             </a>
-                        </div>
+                        </div> --}}
                         <p>
                             نسعى لصناعة علامة تجارية موثوقة توفر منتجات اصلية ذات مناشئ عالمية بمواصفات رصينة.
                         </p>
@@ -66,7 +66,7 @@
                         <ul class="footer-list">
                             @forelse ($externalCategories as $externalCategory)
                             <li>
-                                <a href="service-details.html" target="_blank">
+                                <a href="{{ route('itemsByExternal', $externalCategory->id) }}" target="_blank">
                                     <i class='bx bx-chevron-right'></i>
                                     {{ $externalCategory->name }}
 
@@ -74,7 +74,7 @@
                             </li>
                             @empty
                             <li>
-                                <a href="service-details.html" target="_blank">
+                                <a href="#" target="_blank">
                                     <i class='bx bx-chevron-right'></i>
                                     لاتوجد عروض حاليا
                                 </a>

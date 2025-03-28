@@ -1,7 +1,7 @@
 <div class="navbar-area">
     <!-- Menu For Desktop Device -->
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <img src="{{ asset('mainasset/images/logos/logo-1.png') }}" class="logo-one" alt="Logo">
             <img src="{{ asset('mainasset/images/logos/logo-2.png') }}" class="logo-two" alt="Logo">
         </a>
@@ -11,7 +11,7 @@
     <div class="main-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light ">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('mainasset/images/logos/logo-1.png') }}" class="logo-one" alt="Logo">
                     <img src="{{ asset('mainasset/images/logos/logo-2.png') }}" class="logo-two" alt="Logo">
                 </a>
@@ -69,12 +69,7 @@
                                     </svg>
                                 </a>
 
-                                <form method="post" action="{{ route('logout') }}">
-                                    @csrf
-                                    @method('POST')
-                                    <button type="submit" class="nav-link">تسجيل الخروج</button>
 
-                                </form>
                             </div>
                         @endif
 
@@ -102,7 +97,7 @@
                                 <i class='bx bx-search'></i>
                             </div>
                             <div class="get-btn">
-                                <a href="contact.html" class="default-btn btn-bg-two border-radius-50">تسجيل دخول / دخول<i class='bx bx-chevron-right'></i></a>
+                                <a href="{{ route('userregister') }}" class="default-btn btn-bg-two border-radius-50">تسجيل دخول / دخول<i class='bx bx-chevron-right'></i></a>
                             </div>
                         </div>
                     </div>

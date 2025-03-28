@@ -98,9 +98,8 @@
                                                 </tr>
                                             @endforeach
                                             <tr class="mt-3">
-                                                <th class="font-bold">الاجمالي</th>
-                                                <th>{{ $order->items->sum('quantity') }}</th>
-                                                <th>{{ $order->items->sum('price') }}</th>
+                                                <th class="font-bold" colspan="2">الاجمالي</th>
+                                                <th colspan="2">{{ $order->items->sum('quantity') }}</th>
                                                 <th>{{ $order->total_price }}</th>
                                             </tr>
 

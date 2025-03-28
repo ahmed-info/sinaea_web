@@ -22,7 +22,7 @@
 
         </li>
 
-        <li class="{{ Request::is('brands') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('brands') || Request::is('brands/*') ? 'mm-active' :'' }}">
 
             <a href="{{ route('brands.index') }}">
                 <div class="parent-icon">
@@ -32,7 +32,7 @@
             </a>
 
         </li>
-        <li class="{{ Request::is('departments') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('departments') || Request::is('departments/*') ? 'mm-active' :'' }}">
 
             <a href="{{ route('departments.index') }}">
                 <div class="parent-icon">
@@ -42,7 +42,7 @@
             </a>
 
         </li>
-        <li class="{{ Request::is('categories') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('categories') || Request::is('categories/*') ? 'mm-active' :'' }}">
             <a href="{{ route('categories.index') }}">
                 <div class="parent-icon">
                     <i class="lni lni-control-panel"></i>
@@ -50,7 +50,7 @@
                 <div class="menu-title">الاقسام الفرعية</div>
             </a>
         </li>
-        <li class="{{ Request::is('items') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('items') || Request::is('items/*') ? 'mm-active' :'' }}">
             <a href="{{ route('items.index') }}">
                 <div class="parent-icon">
                     <i class="lni lni-producthunt"></i>
@@ -69,7 +69,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('external-categories') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('external-categories') || Request::is('external-categories/*') ? 'mm-active' :'' }}">
             <a href="{{ route('external-categories.index') }}">
                 <div class="parent-icon">
                     <i class="bx bx-category"></i>
@@ -78,7 +78,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('users') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('users') || Request::is('users/*')? 'mm-active' :'' }}">
             <a href="{{ route('users.index') }}">
                 <div class="parent-icon">
                     <i class="bx bx-user-circle"></i>
@@ -87,7 +87,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('orders') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('orders') || Request::is('orders/*') ? 'mm-active' :'' }}">
             <a href="{{ route('orders.index') }}">
                 <div class="parent-icon">
                     <svg fill="#666666" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -103,7 +103,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('slides') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('slides') || Request::is('slides/*') ? 'mm-active' :'' }}">
             <a href="{{ route('slides.index') }}">
                 <div class="parent-icon">
                     <i class="fadeIn animated bx bx-slider-alt"></i>
@@ -112,7 +112,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('blogs') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('blogs') ||  Request::is('blogs/*')? 'mm-active' :'' }}">
             <a href="{{ route('blogs.index') }}">
                 <div class="parent-icon">
                     <svg fill="#666666" width="26px" height="26px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M42,57H22A15,15,0,0,1,7,42V22A15,15,0,0,1,22,7H35A15,15,0,0,1,50,22v.5A2.5,2.5,0,0,0,52.5,25,4.5,4.5,0,0,1,57,29.5V42A15,15,0,0,1,42,57ZM22,9A13,13,0,0,0,9,22V42A13,13,0,0,0,22,55H42A13,13,0,0,0,55,42V29.5A2.5,2.5,0,0,0,52.5,27,4.5,4.5,0,0,1,48,22.5V22A13,13,0,0,0,35,9Z"/><path d="M35.5,27h-11a4.5,4.5,0,0,1,0-9h11a4.5,4.5,0,0,1,0,9Zm-11-7a2.5,2.5,0,0,0,0,5h11a2.5,2.5,0,0,0,0-5Z"/><path d="M41.5,45h-17a4.5,4.5,0,0,1,0-9h17a4.5,4.5,0,0,1,0,9Zm-17-7a2.5,2.5,0,0,0,0,5h17a2.5,2.5,0,0,0,0-5Z"/></svg>
@@ -121,7 +121,7 @@
             </a>
         </li>
 
-        <li class="{{ Request::is('questions') ? 'mm-active' :'' }}">
+        <li class="{{ Request::is('questions') ||  Request::is('questions/*') ? 'mm-active' :'' }}">
             <a href="{{ route('questions.index') }}">
                 <div class="parent-icon">
                     <i class="bx bx-question-mark"></i>

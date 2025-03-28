@@ -193,7 +193,7 @@
     }
     .banner-content {
         padding-top: 120px;
-        margin-top: 0; 
+        margin-top: 0;
         h1 {
             font-size: 35px;
             max-width: 100%;
@@ -394,7 +394,7 @@
         }
     }
 
-    .about-content { 
+    .about-content {
         .about-list {
             margin: 20px auto 10px;
         }
@@ -442,7 +442,7 @@
                     margin-top: 15px;
                     font-size: 18px;
                     margin-bottom: 0;
-                }  
+                }
             }
             p {
                 margin-top: 15px;
@@ -698,7 +698,7 @@
 
     /* Blog Area CSS */
 
-    
+
     .blog-article {
         .blog-article-title {
             ul {
@@ -806,7 +806,7 @@
         }
     }
     /* Blog Area CSS End */
-    
+
     /* Work Process Area CSS */
     .work-process-card {
         text-align: center;
@@ -881,7 +881,7 @@
         float: none;
         text-align: center;
     }
-    
+
     .case-article {
         .case-article-content {
             .case-article-rs {
@@ -1052,7 +1052,7 @@
             height: 60%;
             left: 0;
             animation: none;
-            background-image: linear-gradient(#0071dc, #070b3b);
+            background-image: linear-gradient(#0071dc, #0073b6);
         }
     }
     .clients-slider-content {
@@ -1073,7 +1073,7 @@
         }
         h3 {
             margin-bottom: 5px;
-    
+
         }
     }
 
@@ -1175,7 +1175,7 @@
     .banner-six {
         &::before {
             background-image: none;
-            background-color: #070b3b;
+            background-color: #0073b6;
             opacity: 0.7;
         }
     }
@@ -1256,8 +1256,8 @@
             }
         }
     }
-     
-   
+
+
 }
 
 @media only screen and (max-width : 575px) {
@@ -1675,7 +1675,7 @@
         }
     }
 
-    .about-content { 
+    .about-content {
         text-align: center;
         .section-title {
             h2 {
@@ -1723,7 +1723,7 @@
         .content {
             width: 90%;
             padding: 20px 15px 20px 92px;
-            
+
             h3 {
                 font-size: 20px;
             }
@@ -1890,7 +1890,7 @@
             }
         }
     }
-    
+
     .counter-another-content {
         margin-bottom: 20px;
         padding-left: 0;
@@ -1976,7 +1976,7 @@
             height: 60%;
             left: 0;
             animation: none;
-            background-image: linear-gradient(#0071dc, #070b3b);
+            background-image: linear-gradient(#0071dc, #0073b6);
         }
     }
     .clients-slider-content {
@@ -1997,7 +1997,7 @@
         }
         h3 {
             margin-bottom: 5px;
-    
+
         }
     }
 
@@ -2022,7 +2022,7 @@
     .banner-six {
         &::before {
             background-image: none;
-            background-color: #070b3b;
+            background-color: #0073b6;
             opacity: 0.7;
         }
     }
@@ -2322,7 +2322,7 @@
             padding: 30px 25px;
         }
     }
-    
+
     .about-content-2 {
         .about-card {
             .content {
@@ -2338,7 +2338,7 @@
             right: -20px;
         }
     }
-    
+
 
     .choose-content {
         .choose-content-card {
@@ -2355,7 +2355,7 @@
             }
         }
     }
-     
+
     .services-card {
         padding: 30px 20px 25px;
         h3 {
@@ -2383,7 +2383,7 @@
             font-size: 18px;
         }
     }
-   
+
     .work-process-left {
         padding: 170px 25px;
     }
@@ -2536,8 +2536,8 @@
             right: 20px;
         }
     }
-    
-    
+
+
     .footer-widget {
         .footer-list {
             li {
@@ -2652,7 +2652,7 @@
             right: 20%;
         }
     }
-    
+
 }
 
 @media only screen and (min-width : 1200px) and (max-width : 1299px) {
@@ -2699,7 +2699,7 @@
             }
         }
     }
-     
+
 }
 
 @media only screen and (min-width : 1200px)  {
@@ -2709,7 +2709,7 @@
     .container-max {
         max-width: 1300px !important;
         margin: 0 auto;
-    } 
+    }
 }
 
 @media only screen and (min-width : 1400px) and (max-width : 1599px) {
@@ -2789,7 +2789,7 @@
     .call-contact {
         text-align: center;
         padding: 50px 0 30px;
-        
+
         h3 {
             font-size: 18px;
         }

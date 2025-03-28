@@ -19,7 +19,7 @@
         </div>
         <!--end breadcrumb-->
 
-        <h6 class="mb-3 text-uppercase">اضافة سلايد</h6>
+        <h6 class="mb-3 text-uppercase">اضافة مدونة</h6>
 
         <div class="card">
             <div class="card-body">
@@ -51,7 +51,8 @@
                                 <h6 class="mb-0 text-uppercase">تفاصيل</h6>
                                         <hr />
                                         <h4 class="mb-4">تفاصيل (المحتوى)</h4>
-                                        <textarea id="mytextarea" name="content"></textarea>
+                                        <textarea id="summernote2" name="content"></textarea>
+
                             </div>
 
 
@@ -72,10 +73,13 @@
 </div>
 <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js'></script>
 
-<script>
-    tinymce.init({
-        selector: '#mytextarea'
-    });
 
+<script>
+    $(document).ready(function() {
+        $('#summernote2').summernote({
+            tabsize: 2,
+            height: 200
+        });
+    });
 </script>
 @endsection

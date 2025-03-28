@@ -34,8 +34,9 @@
                     </div>
 
                     <div class="search-form">
-                        <form>
-                            <input type="text" class="input-search" placeholder="Search here...">
+                        <form action="{{ route('search.user') }}" method="POST">
+                            @csrf
+                            <input type="text" class="input-search" name="search" placeholder="ابحث هنا...">
                             <button type="submit"><i class='bx bx-search'></i></button>
                         </form>
                     </div>
@@ -59,8 +60,7 @@
                                         {{ $slide->description }}
                                     </p>
                                     <div class="banner-btn">
-                                        <a href="about.html" class="default-btn btn-bg-two border-radius-50">تسوق الان<i class='bx bx-chevron-right'></i></a>
-                                        <a href="contact.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                                        <a href="/#newItems" class="default-btn btn-bg-two border-radius-50">تسوق الان<i class='bx bx-chevron-right'></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -74,348 +74,151 @@
         </div>
         <!-- Banner Area End -->
 
-        <!-- Talk Area -->
-        <div class="talk-area ptb-100 mt-5" style="{{ $externalCategories[0]->image ? 'background-image: url('.asset('images/'.$externalCategories[0]->image).')' : '' }};display: none;">
-            <div class="container">
-                <div class="talk-content text-center">
-                    <div class="section-title text-center">
-                        @if ( $externalCategories[0]->discount != null && $externalCategories[0]->discount != 0)
-                            <span class="sp-color1">خصم بنسبة {{ $externalCategories[0]->discount }} %</span>
-                        @endif
-                        <h2>{{ $externalCategories[0]->name }}</h2>
-                    </div>
-                    <a href="contact.html" class="default-btn btn-bg-two border-radius-5">Contact Us</a>
+
+
+    <!-- Carousel End -->
+
+
+    <!-- Featured Start -->
+    <div class="container-fluid pt-5" id="newItems">
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1" style="border-radius: 10px; !important">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px; border-radius: 12px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">منتجات عالية الجودة</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px; border-radius: 12px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                    <h5 class="font-weight-semi-bold m-0">خدمة توصيل</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px; border-radius: 12px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                    <h5 class="font-weight-semi-bold m-0">بيع جملة ومفرد</h5>
                 </div>
             </div>
         </div>
-        <!-- Talk Area End -->
+    </div>
+    <!-- Featured End -->
 
-        <section class="services-area-three pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    @if ( $externalCategories[0]->discount != null && $externalCategories[0]->discount != 0)
-                    <span class="sp-color2">خصم بنسبة {{ $externalCategories[0]->discount }} %</span>
-                @endif
-                    <h2>{{ $externalCategories[0]->name }}</h2>
-                </div>
-                <div class="row pt-45">
 
-                    @foreach ( $externalCategories[0]->externalCategoryItems as $exterItem)
-                    <div class="col-lg-4 col-md-6">
-                        <div class="services-item">
-                            <a href="service-details.html">
-                                <img src="{{ asset('images'.'/'.$exterItem->item->image ) }}" alt="Images">
-                            </a>
-                            <div class="content">
-                                <i class="flaticon-consultant"></i>
-                                <span><a href="service-details.html">{{ $exterItem->item->category_name }}</a></span>
-                                <h3><a href="service-details.html">{{ $exterItem->item->name }}</a></h3>
-                            </div>
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5 text-right" dir="rtl">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="pr-3">الفئات</span></h2>
+        <div class="row px-xl-5 pb-3">
+            @foreach ($categories as $category)
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none2" href="/itemsByCategory/{{ $category->id }}">
+                    <div class="cat-item d-flex align-items-center mb-4" style="border-radius: 10px; !important">
+                        <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                            <img class="img-fluid" src="{{ asset('images/'.$category->image) }}" style="height:100%;object-fit: cover;" alt="">
+                        </div>
+                        <div class="flex-fill pl-3">
+                            <h6>{{ $category->name }}</h6>
+                            <small class="text-body">{{ $category->category_count }} منتج</small>
                         </div>
                     </div>
-                    @endforeach
-
-
-
-                </div>
+                </a>
             </div>
-        </section>
+            @endforeach
 
-        <!-- Services Area -->
-
-        <!-- Case Study Area -->
-        <div class="case-study-area pt-100 pb-70">
-            <div class="container-fluid p-0">
-                <div class="section-title text-center">
-                    <h2>وصلنا حديثاً</h2>
-                </div>
-
-                <div class="case-study-slider owl-carousel owl-theme pt-45">
-                    @foreach ($newitems as $index=> $item)
-                    <div class="case-study-item">
-                        <a href="{{ route('shopcart') }}">
-                            <img src="{{ asset('images/'.$item->image) }}" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('shopcart') }}">{{ $item->name }}</a></h3>
-                            <ul>
+        </div>
+    </div>
+    <!-- Categories End -->
 
 
+    <!-- Products Start -->
+    <div class="container-fluid pt-5 pb-3 text-right" dir="rtl" >
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="pr-3">منتجات جديدة</span></h2>
+        <div class="row px-xl-5">
+            @forelse ($newitems as $item)
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4" style="border-radius: 12px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid" style="width: 100%;height: 200px;object-fit: cover" src="{{ asset('images/'.$item->image) }}" alt="">
+                        <div class="product-action">
+                            <a class="btn btn-outline-dark btn-square" href="{{ route('addItemToCart', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="{{ route('productDetails', $item->id) }}"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="py-4">
+                        <a class="h6 text-decoration-none text-start mr-2" href="{{ route('productDetails', $item->id) }}">{{ $item->name }}</a>
+                        <div class="d-flex align-items-center justify-content-between mx-3 mt-2">
+                            <h5>{{ number_format( $item->discounted_price) }} د.ع</h5>
+                            <h6 class="text-muted ml-2">
                                 @if ($item->discount != null && $item->discount != 0)
-                                <li><a href="{{ route('shopcart') }}">
-
-                                    <del>{{ $item->exchange_price }}</del>
-                                </a></li>
+                                <del>{{ number_format( $item->exchange_price) }} د.ع</del>
                                 @endif
-
-
-
-                                <li><a href="{{ route('shopcart') }}"></a>{{ $item->discounted_price }} </li>
-
-                            </ul>
-                            <a href="/addItemToCart/{{ $item->id }}" class="more-btn">
-
-                                <i class='bx bx-right-arrow-alt'></i>
-                            </a>
+                            </h6>
                         </div>
+                        {{-- <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small>(99)</small>
+                        </div> --}}
                     </div>
-                    @endforeach
-
-
                 </div>
+            </div>
+            @empty
+            <h3>لا توجد منتجات </h3>
+            @endforelse
+
+
+        </div>
+    </div>
+    <!-- Products End -->
+
+
+    <!-- Offer Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="row px-xl-5">
+            @foreach ($externalCategories as $externalCategory)
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;border-radius: 12px;">
+                    <img class="img-fluid" src="{{ asset('images/externalCategory/1741962788_external.jpg') }}" alt="{{ $externalCategory->name }}">
+                    <div class="offer-text">
+                        @if($externalCategory->discount != null && $externalCategory->discount != 0)
+                        <h6 class="text-white text-uppercase">خصم {{ $externalCategory->discount }} %</h6>
+                        @endif
+                        <h3 class="text-white mb-3">{{ $externalCategory->name }}</h3>
+                        <a href="{{ route('itemsByExternal', $externalCategory->id) }}" class="btn btn-primary">تسوق الان</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+
+        </div>
+    </div>
+    <!-- Offer End -->
+
+
+    <div class="brand-area ptb-100">
+        <div class="container">
+            <div class="section-title mb-5 text-center">
+                <h2>العلامات التجارية</h2>
+            </div>
+            <div class="brand-slider owl-carousel owl-theme">
+                @foreach($brands as $brand)
+                <a href="{{ route('itemsByBrand',$brand->id) }}" class="brand-item">
+                    <img src="{{ asset('images/'. $brand->image) }}" class="brand-logo-one" style="width: 100%;height: 200px;object-fit: cover" alt="Images">
+                    <img src="{{ asset('images/'. $brand->image) }}" class="brand-logo-two" style="width: 100%;height: 200px;object-fit: cover" alt="Images">
+                </a>
+                @endforeach
+
+
             </div>
         </div>
-        <!-- Case Study Area End -->
+    </div>
 
-        <!-- Technology Area -->
-        <section class="technology-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="sp-color1">Technology Index</span>
-                    <h2>We Deliver Our Best Solution With The Goal of Trusting</h2>
-                </div>
-
-                <div class="row pt-45">
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-android"></i>
-                            <h3>Android</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-website"></i>
-                            <h3>Web</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-apple"></i>
-                            <h3>ios</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-television"></i>
-                            <h3>TV</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-smartwatch"></i>
-                            <h3>Watch </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="technology-card">
-                            <i class="flaticon-cyber-security"></i>
-                            <h3>IoT</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Technology Area End -->
-
-        <!-- Brand Area -->
-        <div class="brand-area ptb-100">
-            <div class="container">
-                <div class="brand-slider owl-carousel owl-theme">
-                    @foreach($brands as $brand)
-                    <a href="{{ route('itemsByBrand',$brand->id) }}" class="brand-item">
-                        <img src="{{ asset('images/'. $brand->image) }}" class="brand-logo-one" alt="Images">
-                        <img src="{{ asset('images/'. $brand->image) }}" class="brand-logo-two" alt="Images">
-                    </a>
-                    @endforeach
-
-
-                </div>
-            </div>
-        </div>
-        <!-- Brand Area End -->
-
-        <!-- Clients Area -->
-        <section class="clients-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="sp-color2">Our Clients</span>
-                    <h2>Our Clients Feedback</h2>
-                </div>
-
-                <div class="clients-slider owl-carousel owl-theme pt-45">
-                    <div class="clients-content">
-                        <div class="content">
-                            <img src="{{ asset('mainasset/images/clients-img/clients-img1.jpg') }}" alt="Images">
-                            <i class='bx bxs-quote-alt-left'></i>
-                            <h3>Jonthon Martin</h3>
-                            <span>App Developer</span>
-                        </div>
-                        <p>
-                            “Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis.
-                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi loren accumsan ipsum velit.”
-                        </p>
-                    </div>
-
-                    <div class="clients-content">
-                        <div class="content">
-                            <img src="{{ asset('mainasset/images/clients-img/clients-img2.jpg') }}" alt="Images">
-                            <i class='bx bxs-quote-alt-left'></i>
-                            <h3>Alin Decros</h3>
-                            <span>Graphic Designer</span>
-                        </div>
-                        <p>
-                            “Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis.
-                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi loren accumsan ipsum velit.”
-                        </p>
-                    </div>
-
-                    <div class="clients-content">
-                        <div class="content">
-                            <img src="{{ asset('mainasset/images/clients-img/clients-img3.jpg') }}" alt="Images">
-                            <i class='bx bxs-quote-alt-left'></i>
-                            <h3>Elen Musk</h3>
-                            <span>Web Developer</span>
-                        </div>
-                        <p>
-                            “Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis.
-                            sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi loren accumsan ipsum velit.”
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="client-circle">
-                <div class="client-circle-1">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-2">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-3">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-4">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-5">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-6">
-                    <div class="circle"></div>
-                </div>
-                <div class="client-circle-7">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </section>
-        <!-- Clients Area End -->
-
-        <!-- Blog Area -->
-        <div class="blog-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="sp-color2">Latest Blog</span>
-                    <h2>Let’s Check Some Latest Blog</h2>
-                </div>
-
-                <div class="row pt-45">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="{{ asset('mainasset/images/blog/blog-img1.jpg') }}" alt="Blog Images">
-                                </a>
-                                <div class="blog-tag">
-                                    <h3>11</h3>
-                                    <span>Dec</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bxs-user'></i> By Admin</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bx-purchase-tag-alt'></i>Business</a>
-                                    </li>
-                                </ul>
-
-                                <h3>
-                                    <a href="blog-details.html">Product Idea Solution for New Generation</a>
-                                </h3>
-                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                                <a href="blog-details.html" class="read-btn">Read More <i class='bx bx-chevron-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="{{ asset('mainasset/images/blog/blog-img2.jpg') }}" alt="Blog Images">
-                                </a>
-                                <div class="blog-tag">
-                                    <h3>14</h3>
-                                    <span>Dec</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bxs-user'></i> By Admin</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bx-purchase-tag-alt'></i>Invention</a>
-                                    </li>
-                                </ul>
-                                <h3>
-                                    <a href="blog-details.html">New Device Invention for Digital Platform</a>
-                                </h3>
-                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                                <a href="blog-details.html" class="read-btn">Read More <i class='bx bx-chevron-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="{{ asset('mainasset/images/blog/blog-img3.jpg') }}" alt="Blog Images">
-                                </a>
-                                <div class="blog-tag">
-                                    <h3>17</h3>
-                                    <span>Dec</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <ul>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bxs-user'></i> By Admin</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-1.html"><i class='bx bx-purchase-tag-alt'></i>Achive</a>
-                                    </li>
-                                </ul>
-
-                                <h3>
-                                    <a href="blog-details.html">Business Strategy Make His Goal Acheive </a>
-                                </h3>
-                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.</p>
-                                <a href="blog-details.html" class="read-btn">Read More <i class='bx bx-chevron-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Blog Area End -->
 
         <!-- Footer Area End -->
        @include('main.layout.footer')

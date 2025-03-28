@@ -245,7 +245,7 @@ Top Header
 }
 
 .top-header-bg {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 
 .top-left-side .top-header-text {
@@ -970,7 +970,7 @@ Main Banner Area
   right: 0;
   width: 100%;
   height: 100%;
-  /* background-color: #070b3b; */
+  /* background-color: #0073b6; */
   opacity: 0.7;
 }
 
@@ -1133,7 +1133,7 @@ Main Banner Area
 }
 
 .banner-four-area {
-  background-color: #070b3b;
+  background-color: #0073b6;
   z-index: 1;
   position: relative;
 }
@@ -1379,7 +1379,7 @@ Banner New Demo Start Seven & Eight
   left: auto;
 }
 .banner-seven-slide.owl-theme .owl-nav [class*=owl-]:hover {
-  background-color: #070b3b;
+  background-color: #0073b6;
   color: #ffffff;
 }
 
@@ -1404,7 +1404,7 @@ Inner Banner
 .inner-banner {
   position: relative;
   z-index: 1;
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .inner-banner .inner-title {
   padding-top: 150px;
@@ -1623,7 +1623,7 @@ About Area
 }
 
 .about-bg {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 
 .about-img-2 {
@@ -1735,7 +1735,7 @@ About Area
   height: 26px;
   text-align: center;
   line-height: 28px;
-  background: #070b3b;
+  background: #0073b6;
 }
 .skill-bar .progress-content-outter {
   height: 10px;
@@ -1810,7 +1810,7 @@ Security Area End
 Services Area
 =================================*/
 .services-area {
-  background-color: #070b3b;
+  background-color: #0073b6;
   position: relative;
 }
 .services-area .section-title h2 {
@@ -1949,7 +1949,7 @@ Services Area
 }
 
 .services-area-two {
-  background-color: #070b3b;
+  background-color: #0073b6;
   position: relative;
   z-index: 1;
 }
@@ -2133,7 +2133,7 @@ Work Area
 }
 
 .work-process-left {
-  background-color: #070b3b;
+  background-color: #0073b6;
   padding: 148px 50px;
   border-radius: 10px;
   margin-bottom: 30px;
@@ -2241,7 +2241,7 @@ Work Area
 }
 
 .work-process-right {
-  background-color: #070b3b;
+  background-color: #0073b6;
   padding: 138px 50px;
   border-radius: 10px;
   margin-bottom: 30px;
@@ -2318,7 +2318,7 @@ Work Area
 Work Area End
 =================================*/
 .choose-area {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 
 .choose-content {
@@ -2412,7 +2412,7 @@ Work Area End
   right: 0;
   width: 90%;
   height: 100%;
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 
 /*==================================
@@ -2727,7 +2727,7 @@ Build Area End
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #070b3b;
+  background-color: #0073b6;
   opacity: 0.8;
 }
 
@@ -2764,7 +2764,7 @@ Build Area End
 }
 
 .call-us-area {
-  background-color: #070b3b;
+  background-color: #0073b6;
   position: relative;
   z-index: 1;
 }
@@ -3157,7 +3157,7 @@ Case Study Area
   right: 0;
   width: 100%;
   height: 60%;
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .case-study-area-two .section-title h2 {
   max-width: 500px;
@@ -3260,7 +3260,7 @@ Technology Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #070b3b;
+  background-color: #0073b6;
   opacity: 0.8;
 }
 
@@ -3305,7 +3305,7 @@ Technology Area
 .technology-area-three {
   position: relative;
   z-index: 1;
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .technology-area-three .section-title {
   margin-bottom: 30px;
@@ -3362,7 +3362,7 @@ Technology Area
   color: #0071dc;
 }
 .technology-item h3 {
-  color: #070b3b;
+  color: #0073b6;
   margin-bottom: 0;
   margin-top: 17px;
   font-weight: 500;
@@ -3391,7 +3391,7 @@ Technology Area
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #070b3b;
+  background-color: #0073b6;
   opacity: 0.5;
   border-radius: 10px;
 }
@@ -3671,10 +3671,10 @@ Clients Area
 }
 
 .clients-content-color {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .clients-content-color::before {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .clients-content-color .content h3 {
   color: #ffffff;
@@ -3770,7 +3770,7 @@ Clients Area
   width: 90%;
   height: 90%;
   animation: border-transform 15s infinite ease-in-out;
-  background-image: linear-gradient(#0071dc, #070b3b);
+  background-image: linear-gradient(#0071dc, #0073b6);
 }
 
 .clients-slider-content {
@@ -4506,7 +4506,7 @@ Blog Area End
   background-repeat: no-repeat;
   background-position: center center !important;
   position: relative;
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 .side-bar-widget .widget-popular-post .item .thumb .full-image.bg1 {
   background-image: url(../images/blog/blog-details.jpg);
@@ -5035,7 +5035,7 @@ Contact Area
 
 .contact-info {
   margin-bottom: 30px;
-  background-color: #070b3b;
+  background-color: #0073b6;
   padding: 52px 35px 22px;
   border-radius: 15px;
   position: relative;
@@ -5325,7 +5325,7 @@ Map Area
 Map Area End
 ====================================*/
 .footer-bg {
-  background-color: #070b3b;
+  background-color: #0073b6;
 }
 
 .footer-widget {
@@ -5602,7 +5602,7 @@ Preloader CSS
   width: 100%;
   height: 100%;
   z-index: 99999;
-  background: #070b3b;
+  background: #0073b6;
 }
 
 .spinner {
@@ -5658,7 +5658,7 @@ Home Page Six Css
   right: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to right, rgba(7, 11, 59, 0.3803921569), #070b3b);
+  background-image: linear-gradient(to right, rgba(7, 11, 59, 0.3803921569), #0073b6);
 }
 
 .banner-six-content {
@@ -5717,7 +5717,7 @@ Home Page Six Css
   width: 110%;
   height: 70%;
   animation: border-transform 15s infinite ease-in-out;
-  background-image: linear-gradient(#0071dc, #070b3b);
+  background-image: linear-gradient(#0071dc, #0073b6);
 }
 
 .services-card-color-bg2 {

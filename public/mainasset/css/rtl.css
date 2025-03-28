@@ -191,7 +191,7 @@ body {
 }
 
 .banner-six::before {
-  background-image: linear-gradient(to right, #070b3b, rgba(7, 11, 59, 0.3803921569));
+  background-image: linear-gradient(to right, #0073b6, rgba(7, 11, 59, 0.3803921569));
 }
 
 .banner-six-content {

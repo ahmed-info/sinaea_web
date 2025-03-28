@@ -10,7 +10,7 @@
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Category</li>
+                            <li class="breadcrumb-item active" aria-current="page">المنتج</li>
                         </ol>
                     </nav>
                 </div>
@@ -105,7 +105,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label for="discount">السعر بعد التخفيض</label>
+                                <label for="discount">نسبة التخفيض</label>
                                 <input type="number" class="form-control" id="discount" name="discount"
                                     value="{{ $item->discount }}">
                                 @error('discount')

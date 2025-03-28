@@ -56,10 +56,6 @@
 
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote({
-                tabsize: 2,
-                height: 200
-            });
 
             $('#summernote2').summernote({
                 tabsize: 2,

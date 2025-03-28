@@ -34,6 +34,14 @@
                                 </a>
                             </li>
                             @endif
+                            @if(auth()->check())
+                            <form method="post" action="{{ route('logout') }}">
+                                @csrf
+                                @method('POST')
+                                <button type="submit" class="nav-link text-white">تسجيل الخروج</button>
+
+                            </form>
+                            @endif
 
                         </ul>
                     </div>

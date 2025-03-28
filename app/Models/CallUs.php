@@ -23,15 +23,15 @@ class CallUs extends Model
         'updated_at'
     ];
 
+    // public function getPhoneLocalAttribute()
+    // {
+    //     return $this->phone;
+    // }
+
     public function getPhoneWithCountryCodeAttribute(){
-    // الرقم المكون من 11 مرتبة
-    $number = $this->phone;
-
-    // إهمال أول مرتبة
-    $remaining = substr($number, 1);
-
-    // إضافة "+964" في البداية
-    $finalNumber = "+964" . $remaining;
-    return $this->phone = $finalNumber;
+        if (substr($this->phone, 0, 1) === '0') {
+            return '+964' . substr($this->phone, 1);
+        }
+        return $this->phone;
     }
 }
