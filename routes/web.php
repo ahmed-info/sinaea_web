@@ -61,6 +61,11 @@ Route::get('/productDetails/{id}', [MainController::class,'productDetails'])->na
 Route::get('/shopcart', [CartController::class,  'shopcart'])->name('shopcart')->middleware('roleManager');
 Route::any('/addItemToCart/{itemId}', [CartController::class,  'addItemToCart'])->name('addItemToCart')->middleware('roleManager');
 
+
+Route::get('/favorite', [FavoriteController::class,  'favorite'])->name('favorite')->middleware('roleManager');
+Route::any('/addItemTofav/{itemId}', [FavoriteController::class,  'addItemTofav'])->name('addItemTofav')->middleware('roleManager');
+Route::delete('/deleteFav/{id}', [FavoriteController::class,  'deleteFav'])->name('favorite.delete');
+
 Route::put('/decreaseCart/{id}', [CartController::class,  'decreaseCart'])->name('decreaseCart')->middleware('roleManager');
 Route::put('/increaseCart/{id}', [CartController::class,  'increaseCart'])->name('increaseCart');
 Route::delete('/deleteCart/{id}', [CartController::class,  'deleteCart'])->name('cart.delete');
@@ -87,7 +92,7 @@ Route::resource('external-categories', ExternalCategoryController::class);
 Route::get('/search', [ExternalCategoryController::class, 'search'])->name('items.search');
 Route::get('/addExternalItem/{id}', [ExternalCategoryController::class, 'createExternalItem'])->name('createExternalItem');
 Route::resource('external-category-items', ExternalCategoryItemController::class);
-Route::resource('favorites', FavoriteController::class);
+//Route::resource('favorites', FavoriteController::class);
 Route::resource('items', ItemController::class);
 Route::resource('item-details', ItemDetailController::class);
 Route::resource('questions', QuestionController::class)->middleware('web');

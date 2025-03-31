@@ -48,7 +48,7 @@
         <div class="container-fluid pb-5">
             <div class="row px-xl-5">
                 <div class="col-lg-5 mb-30">
-                    <div id="product-carousel22" class="">
+                    <div id="product-carousel" class="">
                         <div class="carousel-inner bg-light">
                             <div class="active">
                                 <img class="img-fluid w-100" src="{{ asset('images/'.$item->image) }}" alt="">
@@ -92,6 +92,10 @@
                             <a class="btn btn-primary px-3 mx-2" href="{{ route('addItemToCart', $item->id) }}"><i class="fa fa-shopping-cart mr-1"></i>اضافة الى السلة</a>
                         </div>
 
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#makeReviewModal">
+                            Launch demo modal
+                          </button>
+
                     </div>
                 </div>
             </div>
@@ -122,42 +126,31 @@
 
         <!-- Products Start -->
         <div class="container-fluid py-5" dir="ltr">
-            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4 text-right"><span class="bg-secondary pr-3">منتجات اخرى قد تعجبك</span></h2>
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4 text-right"><span class="pr-3">منتجات اخرى قد تعجبك</span></h2>
             <div class="row px-xl-5">
                 <div class="col">
                     <div class="owl-carousel related-carousel">
                         @foreach ($relatedItems as $item)
-                        <div class="product-item bg-light">
-                            <div class="product-img position-relative overflow-hidden">
+                        <div class="product-item bg-light" style="border-radius: 12px;">
+                            <div class="product-img position-relative overflow-hidden" style="border-radius: 12px;">
                                 <img class="img-fluid w-100" src="{{ asset('images/'.$item->image) }}" alt="">
                                 <div class="product-action">
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href="{{ route('addItemToCart',$item->id) }}"><i class="fa fa-shopping-cart"></i></a>
                                     <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                                    <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                    <a class="btn btn-outline-dark btn-square" href="{{ route('productDetails', $item->id) }}"><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">{{ $item->name }}</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    @if ($item->discount != null && $item->discount != 0)
-
-                                    <h5>{{ number_format( $item->discounted_price) }} د.ع</h5>
+                            <div class="py-4 text-right">
+                                <a class="h6 text-decoration-none text-start mr-2" href="{{ route('productDetails', $item->id) }}">{{ $item->name }}</a>
+                                <div class="d-flex align-items-center justify-content-between mx-3 mt-2">
+                                    <h5 class="text-right">{{ number_format( $item->discounted_price) }} د.ع</h5>
                                     <h6 class="text-muted ml-2">
-
+                                        @if ($item->discount != null && $item->discount != 0)
                                         <del>{{ number_format( $item->exchange_price) }} د.ع</del>
+                                        @endif
                                     </h6>
-                                    @endif
-
                                 </div>
-                                {{-- <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
-                                </div> --}}
+
                             </div>
                         </div>
                         @endforeach
@@ -170,11 +163,42 @@
 
 
 
+          <!-- Modal -->
+          <div class="modal fade" id="makeReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
         <!-- Footer Area End -->
        @include('main.layout.footer')
         <!-- Footer Area End -->
 
 @include('main.layout.scriptjs')
+<!-- Button trigger modal -->
+<script>
+    $(document).ready(function() {
+        $('#makeReviewModal').madal('show');
+    });
 
+
+
+</script>
     </body>
 </html>

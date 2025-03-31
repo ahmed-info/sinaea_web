@@ -116,6 +116,11 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="isDollar" name="isDollar"
+                                        value="{{ $item->isDollar }}" {{ $item->isDollar == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="active">هل السعر بالدولار</label>
+                                </div>
+                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="active" name="active"
                                         value="{{ $item->active }}" {{ $item->active == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="active">فعال</label>

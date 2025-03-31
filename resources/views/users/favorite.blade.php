@@ -61,90 +61,59 @@
                         <tr>
                             <th>اسم المنتج</th>
                             <th>السعر</th>
-                            <th>الكمية</th>
-                            <th>القيمة</th>
-                            <th>خذف</th>
+                            <th>اضافة الى السلة</th>
+                            <th>حذف</th>
                         </tr>
                     </thead>
                     <tbody class="align-middle">
-                        @if (count($carts) == 0)
+                        @if (count($favorites) == 0)
                             <tr>
-                                <td colspan="5">لا يوجد منتجات في العربة</td>
+                                <td colspan="5">لا يوجد منتجات في المفضلة</td>
                             </tr>
                         @endif
-                        @foreach ($carts as $cart)
+                        @foreach ($favorites as $favorite)
                             <tr>
                                 <td class="align-middle">
-                                    <img src="{{ asset('images/' . $cart->item->image) }}" alt=""
+                                    <img src="{{ asset('images/' . $favorite->item->image) }}" alt=""
                                         style="width: 50px;">
-                                    {{ $cart->item->name }}
+                                    {{ $favorite->item->name }}
                                 </td>
-                                @if ($cart->item->discount > 0 || $cart->item->discount != null)
-                                    <td class="align-middle">{{ number_format( $cart->item->discounted_price) }}</td>
+                                @if ($favorite->item->discount > 0 || $favorite->item->discount != null)
+                                    <td class="align-middle">{{ number_format( $favorite->item->discounted_price) }}</td>
                                     @php
-                                        $id[] = $cart->item_id;
-                                        $quantity[] = $cart->quantity;
-                                        $price[] = $cart->item->discounted_price;
+                                        $id[] = $favorite->item_id;
+                                        $price[] = $favorite->item->discounted_price;
                                     @endphp
                                 @else
 
 
-                                    <td class="align-middle">{{ number_format( $cart->item->exchange_price)}}</td>
+                                    <td class="align-middle">{{ number_format( $favorite->item->exchange_price)}}</td>
                                     @php
-                                         $id[] = $cart->item_id;
-                                        $quantity[] = $cart->quantity;
-                                        $price[] = $cart->item->exchange_price;
+                                         $id[] = $favorite->item_id;
+                                        $price[] = $favorite->item->exchange_price;
                                     @endphp
                                 @endif
                                 <td class="align-middle">
                                     <div class="input-group mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
 
-                                            <form method="POST" action="{{ route('decreaseCart', $cart->id) }}">
+                                            <form method="POST" action="{{ route('addItemToCart', $favorite->item_id) }}">
                                                 @csrf
-                                                @method('PUT')
-                                                <input type="hidden" name="quantity" value="{{ $cart->quantity }}">
-
-                                                <button class="btn btn-sm btn-primary btn-minus" type="submit">
-                                                    <i class="fa fa-minus"></i>
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                        <input type="text"
-                                            class="form-control form-control-sm bg-secondary border-0 text-center"
-                                            value="{{ $cart->quantity }}" name="items[{{ $cart->id }}][quantity]"
-                                            readonly>
-                                        <div class="input-group-btn">
-                                            <form action="{{ route('increaseCart', $cart->id) }}" method="POST"
-                                                class="d-inline">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="hidden" name="quantity" value="{{ $cart->quantity }}">
-
-                                                <button class="btn btn-sm btn-primary btn-plus" type="submit">
+                                                @method('POST')
+                                                <button class="btn btn-sm btn-primary" type="submit">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </form>
+
                                         </div>
+
+
                                     </div>
                                 </td>
-                                @if ($cart->item->discount > 0 || $cart->item->discount != null)
-                                    <div class="d-none">
-                                        {{ $total += $cart->item->discounted_price * $cart->quantity }}
 
-                                    </div>
-                                    <td class="align-middle">{{ number_format( $cart->item->discounted_price * $cart->quantity) }}</td>
-                                @else
-                                    <div class="d-none">
-
-                                        {{ $total += $cart->item->exchange_price * $cart->quantity }}
-                                    </div>
-                                    <td class="align-middle">{{ number_format( $cart->item->exchange_price * $cart->quantity) }}</td>
-                                @endif
 
                                 <td class="align-middle">
-                                    <form method="POST" action="{{ route('cart.delete', $cart->id) }}">
+                                    <form method="POST" action="{{ route('favorite.delete', $favorite->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" type="submit"><i

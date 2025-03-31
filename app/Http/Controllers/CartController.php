@@ -146,9 +146,4 @@ class CartController extends Controller
        $brands = Brand::all();
        return view('main.home', compact('departments', 'categories', 'slides', 'externalCategories', 'newitems', 'callUs', 'social', 'brands'));
     }
-
-
-
-
-
 }

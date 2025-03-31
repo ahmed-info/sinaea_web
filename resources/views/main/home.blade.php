@@ -137,12 +137,11 @@
             @forelse ($newitems as $item)
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4" style="border-radius: 12px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                    <div class="product-img position-relative overflow-hidden">
+                    <div class="product-img position-relative overflow-hidden" style="border-radius: 12px;">
                         <img class="img-fluid" style="width: 100%;height: 200px;object-fit: cover" src="{{ asset('images/'.$item->image) }}" alt="">
                         <div class="product-action">
                             <a class="btn btn-outline-dark btn-square" href="{{ route('addItemToCart', $item->id) }}"><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="{{ route('addItemTofav', $item->id) }}"><i class="far fa-heart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href="{{ route('productDetails', $item->id) }}"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
@@ -156,14 +155,7 @@
                                 @endif
                             </h6>
                         </div>
-                        {{-- <div class="d-flex align-items-center justify-content-center mb-1">
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small>(99)</small>
-                        </div> --}}
+
                     </div>
                 </div>
             </div>
